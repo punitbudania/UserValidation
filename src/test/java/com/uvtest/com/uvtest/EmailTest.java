@@ -23,13 +23,22 @@ public class EmailTest
         this.email = email;
         this.expres = expres;
     }
-    /*
+
     @Parameterized.Parameters
     public static Collection input()
     {
-        return Arrays.asList(new Object[][] {});
+        return Arrays.asList(new Object[][] {{"abc@yahoo.com", true},
+                {"abc-100@yahoo.com", true},
+                {"abc.100@yahoo.com", true},
+                {"abc111@abc.com", true},
+                {"abc-100@abc.net", true},
+                {"abc.100@abc.com.au", true},
+                {"abc@1.com", true},
+                {"abc", false},
+                {"abc@.com.my", false},
+                {"abc123@gmail.a", false}});
     }
-*/
+
     @Test
     public void testEmail()
     {
