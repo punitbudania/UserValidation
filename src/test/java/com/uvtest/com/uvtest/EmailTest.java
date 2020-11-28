@@ -23,13 +23,13 @@ public class EmailTest
         this.email = email;
         this.expres = expres;
     }
-
+    /*
     @Parameterized.Parameters
     public static Collection input()
     {
         return Arrays.asList(new Object[][] {});
     }
-
+*/
     @Test
     public void testEmail()
     {
