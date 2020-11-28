@@ -42,6 +42,6 @@ public class EmailTest
     @Test
     public void testEmail()
     {
-        Assert.assertEquals(expres, emailPart.validateEmail("abc-xyz@bridgelabz.co.in"));
+        Assert.assertEquals(expres, emailPart.validateEmail(email));
     }
 }

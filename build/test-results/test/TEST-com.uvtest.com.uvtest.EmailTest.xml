@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.uvtest.com.uvtest.EmailTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2020-11-28T06:23:47" hostname="LAPTOP-RKVS9V9I" time="18.293">
+  <properties/>
+  <testcase name="testEmail[0]" classname="com.uvtest.com.uvtest.EmailTest" time="12.885"/>
+  <testcase name="testEmail[1]" classname="com.uvtest.com.uvtest.EmailTest" time="0.932"/>
+  <testcase name="testEmail[2]" classname="com.uvtest.com.uvtest.EmailTest" time="1.148"/>
+  <testcase name="testEmail[3]" classname="com.uvtest.com.uvtest.EmailTest" time="0.714"/>
+  <testcase name="testEmail[4]" classname="com.uvtest.com.uvtest.EmailTest" time="0.173"/>
+  <testcase name="testEmail[5]" classname="com.uvtest.com.uvtest.EmailTest" time="0.192"/>
+  <testcase name="testEmail[6]" classname="com.uvtest.com.uvtest.EmailTest" time="0.182"/>
+  <testcase name="testEmail[7]" classname="com.uvtest.com.uvtest.EmailTest" time="0.193"/>
+  <testcase name="testEmail[8]" classname="com.uvtest.com.uvtest.EmailTest" time="0.204"/>
+  <testcase name="testEmail[9]" classname="com.uvtest.com.uvtest.EmailTest" time="1.652"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
