@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.uvtest.UVTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-11-27T16:58:47" hostname="LAPTOP-RKVS9V9I" time="0.008">
+  <properties/>
+  <testcase name="checkPassword" classname="com.uvtest.UVTest" time="0.004"/>
+  <testcase name="checkEmail" classname="com.uvtest.UVTest" time="0.001"/>
+  <testcase name="checkMobile" classname="com.uvtest.UVTest" time="0.0"/>
+  <testcase name="checkLastName" classname="com.uvtest.UVTest" time="0.0"/>
+  <testcase name="checkFirstName" classname="com.uvtest.UVTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
