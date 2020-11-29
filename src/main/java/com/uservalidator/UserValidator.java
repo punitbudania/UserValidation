@@ -11,55 +11,52 @@ public class UserValidator
     private static final String EMAIL = "^([a-z]{3})([+_.-]?[0-9a-z]{3,})?([@][0-9a-z]{1,})([.][a-z]{2,})([.][a-z]{2,})?";
     private static final String PASSWORD = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#%&-+=()])(?=\\S+$).{8,}$";
 
-    public  static void main(String[] args)
+    public  static void main(String[] args) throws UserValidatorException
     {
         System.out.println("Enter FirstName:");
         Scanner fname = new Scanner(System.in);
-        if(validateFirstName(fname.next()))
+        if (validateFirstName(fname.next()))
         {
             System.out.println("Enter LastName:");
             Scanner lname = new Scanner(System.in);
-            if(validateLastName(lname.next()))
+            if (validateLastName(lname.next()))
             {
                 System.out.println("Enter EmailID:");
                 Scanner email = new Scanner(System.in);
-                if(validateEmail(email.next()))
+                if (validateEmail(email.next()))
                 {
                     System.out.println("Enter MobileNo:");
                     Scanner mob = new Scanner(System.in);
-                    if(validateMobile(mob.nextLine()))
+                    if (validateMobile(mob.nextLine()))
                     {
                         System.out.println("Enter Password:");
                         Scanner pswd = new Scanner(System.in);
-                        if(validatePassword(pswd.next()))
+                        if (validatePassword(pswd.next()))
                         {
                             System.out.println("Done");
                         }
                         else
-                        {
-                            System.out.println("Invalid!! Try Again");
-                        }
+                            {
+                            throw new UserValidatorException("Invalid!! Try Again");
+                            }
                     }
                     else
-                    {
-                        System.out.println("Invalid!! Try Again");
+                        {
+                        throw new UserValidatorException("Invalid!! Try Again");
                     }
-                }
-                else
-                {
-                    System.out.println("Invalid!! Try Again");
+                } else {
+                    throw new UserValidatorException("Invalid!! Try Again");
                 }
             }
             else
             {
-                System.out.println("Invalid!! Try Again");
+                throw new UserValidatorException("Invalid!! Try Again");
             }
-        }
-        else
-        {
-            System.out.println("Invalid!! Try Again");
+        } else {
+            throw new UserValidatorException("Invalid!! Try Again");
         }
     }
+
 
     public static boolean validateFirstName(String fname)
     {
@@ -91,3 +88,4 @@ public class UserValidator
         return pattern.matcher(password).matches();
     }
 }
+
