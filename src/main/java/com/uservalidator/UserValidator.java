@@ -3,6 +3,12 @@ package com.uservalidator;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+@FunctionalInterface
+interface ValidateUserEntry
+{
+    boolean validate(String userInput, String PATTERN);
+}
+
 public class UserValidator {
     private static final String FIRST_NAME = "^[A-Z][a-z]{2,}";
     private static final String LAST_NAME = "^[A-Z][a-z]{2,}";
@@ -10,27 +16,41 @@ public class UserValidator {
     private static final String EMAIL = "^([a-z]{3})([+_.-]?[0-9a-z]{3,})?([@][0-9a-z]{1,})([.][a-z]{2,})([.][a-z]{2,})?";
     private static final String PASSWORD = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#%&-+=()])(?=\\S+$).{8,}$";
 
-    public static void main(String[] args) throws UserValidatorException {
+
+    public static void main(String[] args) {
+        ValidateUserEntry validateInputs;
+
+        validateInputs = (String userInput, String PATTERN) -> {
+            Pattern pattern = Pattern.compile(PATTERN);
+            return pattern.matcher(userInput).matches();
+        };
+
+
         System.out.println("Enter FirstName:");
-        Scanner fname = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        String fname = sc.next();
         try {
-            if (validateFirstName(fname.next())) {
+            if (validateInputs.validate(fname, FIRST_NAME)) {
                 System.out.println("Enter LastName:");
-                Scanner lname = new Scanner(System.in);
+                sc = new Scanner(System.in);
+                String lname = sc.next();
                 try {
-                    if (validateLastName(lname.next())) {
+                    if (validateInputs.validate(lname, LAST_NAME)) {
                         System.out.println("Enter EmailID:");
-                        Scanner email = new Scanner(System.in);
+                        sc = new Scanner(System.in);
+                        String email = sc.next();
                         try {
-                            if (validateEmail(email.next())) {
+                            if (validateInputs.validate(email, EMAIL)) {
                                 System.out.println("Enter MobileNo:");
-                                Scanner mob = new Scanner(System.in);
+                                sc = new Scanner(System.in);
+                                String mob = sc.nextLine();
                                 try {
-                                    if (validateMobile(mob.nextLine())) {
+                                    if (validateInputs.validate(mob, MOBILE)) {
                                         System.out.println("Enter Password:");
-                                        Scanner pswd = new Scanner(System.in);
+                                        sc = new Scanner(System.in);
+                                        String pswd = sc.next();
                                         try {
-                                            if (validatePassword(pswd.next())) {
+                                            if (validateInputs.validate(pswd, PASSWORD)) {
                                                 System.out.println("Done");
                                             } else {
                                                 throw new UserValidatorException("Invalid!! Try Again");
@@ -63,30 +83,5 @@ public class UserValidator {
         } catch (UserValidatorException e) {
             System.out.println("UserValidatorException:" + e.getMessage());
         }
-    }
-
-    public static boolean validateFirstName(String fname) {
-        Pattern pattern = Pattern.compile(FIRST_NAME);
-        return pattern.matcher(fname).matches();
-    }
-
-    public static boolean validateLastName(String lname) {
-        Pattern pattern = Pattern.compile(LAST_NAME);
-        return pattern.matcher(lname).matches();
-    }
-
-    public static boolean validateMobile(String mob) {
-        Pattern pattern = Pattern.compile(MOBILE);
-        return pattern.matcher(mob).matches();
-    }
-
-    public static boolean validateEmail(String email) {
-        Pattern pattern = Pattern.compile(EMAIL);
-        return pattern.matcher(email).matches();
-    }
-
-    public static boolean validatePassword(String password) {
-        Pattern pattern = Pattern.compile(PASSWORD);
-        return pattern.matcher(password).matches();
     }
 }
